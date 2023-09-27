@@ -37,6 +37,8 @@ public class ProdutoNegocio {
         boolean produtoRepetido = false;
         for (Produto produto: bancoDados.getProdutos()) {
             if (produto.getCodigo() == novoProduto.getCodigo()) {
+                // Inserir o if (produto.getCodigo().equalsIgnoreCase(codigo)) no lugar de == 
+
                 produtoRepetido = true;
                 System.out.println("Produto já cadastrado.");
                 break;
@@ -55,7 +57,17 @@ public class ProdutoNegocio {
      */
     public void excluir(String codigo) {
         //TODO Implementar a exclusão
+        int produtoexclusao = -1;
+        for(int i = 0; i < bancoDados.getProdutos().length; i++){
+
+            Produto produto = bancoDados.getProdutos()[i];
+            if (produto.getCodigo().equals(codigo)){
+                produtoexclusao = i;
+                break;
+            }
     }
+
+    
 
     /**
      * Obtem um produto a partir de seu código de cadastro.
